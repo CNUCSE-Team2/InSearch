@@ -27,6 +27,7 @@ class InSearch:
         # table의 해당 token을 찾아 token과 document_id를 삭제
         #   token에 해당하는 id가 1개이면 token도 삭제
         #   token에 해당하는 id가 2개 이상이면, id만 삭제
+        # id_in_table에 해당 id 삭제
         return True
 
     # table의 해당 document의 기록을 new_document로 변경
