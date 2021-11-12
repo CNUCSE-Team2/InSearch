@@ -1,4 +1,4 @@
-from TokenAnaylze import *
+from TokenAnalyzer import *
 
 
 class InSearch:
@@ -18,7 +18,7 @@ class InSearch:
         # id_in_table에 해당 id 추가
         self.id_in_table.insert(document_id)
         # document 형태소 분석
-        token_list = TokenAnaylze(document)
+        token_list = token_analyzer(document)
         # table에 { token : document id }를 추가
         #   token이 없으면, 새로이 추가
         #   token이 있으면, 원래의 id list에 해당 id값만 추가
