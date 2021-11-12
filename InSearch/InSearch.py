@@ -32,17 +32,17 @@ class InSearch:
     # table에 document의 token과 id를 삭제
     # parameter : int document_id, string document
     # return : boolean
-    def delete_document(self, document_id, document):
+    def delete_document(self, document_id):
         # 해당 id가 있는지 확인
         if document_id not in self.id_in_table:
             return False
-        # document 형태소 분석
-        token_list = TokenAnaylze(document)
-        # table의 해당 token을 찾아 document_id를 삭제
-        #   token에 해당하는 id가 없다면 token도 삭제
-        for token in token_list:
-            if token in self.table.keys():
-                self.table[token].pop(document_id)
+
+        # table의 모든 token에서 document_id를 삭제
+        # token에 해당하는 id가 없다면 token도 table에서 삭제
+
+        for token in self.table.keys():
+            if document_id in self.table[token]:
+                self.table[token].remove(document_id)
                 if len(self.table[token]) == 0:
                     self.table.pop(token)
         # id_in_table에 해당 id 삭제
@@ -52,8 +52,8 @@ class InSearch:
     # table의 해당 document의 기록을 new_document로 변경
     # parameter : int document_id, string old_document, string new_document
     # return : boolean
-    def update_document(self, document_id, old_document, new_document):
-        self.delete_document(document_id, old_document)
+    def update_document(self, document_id, new_document):
+        self.delete_document(document_id)
         self.add_document(document_id, new_document)
         return True
 
