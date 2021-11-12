@@ -14,20 +14,26 @@ class InSearch:
     # return : boolean
     def add_document(self, document_id, document):
         # 해당 id가 없는지 확인
-        if document_id in self.id_in_table:
+        if document_id in self.id_n_len_in_table:
             return False
-        # id_in_table에 해당 id 추가
-        self.id_in_table.append(document_id)
         # document 형태소 분석
-        token_list = ta.token_analyzer(document)
-        # table에 { token : document id }를 추가
-        #   token이 없으면, 새로이 추가
-        #   token이 있으면, 원래의 id list에 해당 id값만 추가
+        token_list = token_analyzer(document)
+        # id_n_len_in_table에 해당 doc의 id와 len 추가
+        self.id_n_len_in_table[document_id] = len(token_list)
+        # table에 { token : {document id : frequency} }를 추가
+        # token이 table에 있을 때
+        #   id가 없으면, 해당 {id : freq = 0}을 추가
+        #   id가 있으면, 해당 {id : freq += 1}을 추가
+        # token이 table에 없을 때
+        #   token과 {id : freq = 0}을 추가
         for token in token_list:
             if token in self.table.keys():
-                self.table[token].insert(document_id)
+                if document_id in self.table[token]:
+                    self.table[token][document_id] += 1
+                else:
+                    self.table[token][document_id] = 1
             else:
-                self.table[token] = [document_id]
+                self.table[token] = {document_id:1}
         return True
 
     # table에 document의 token과 id를 삭제
