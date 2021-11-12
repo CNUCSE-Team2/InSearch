@@ -36,24 +36,24 @@ class InSearch:
                 self.table[token] = {document_id:1}
         return True
 
-    # table에 document의 token과 id를 삭제
-    # parameter : int document_id, string document
+    # table에 해당 id를 가진 document의 token을 삭제
+    # parameter : int document_id
     # return : boolean
     def delete_document(self, document_id):
         # 해당 id가 있는지 확인
-        if document_id not in self.id_in_table:
+        if document_id not in self.id_n_len_in_table:
             return False
 
-        # table의 모든 token에서 document_id를 삭제
-        # token에 해당하는 id가 없다면 token도 table에서 삭제
-
-        for token in self.table.keys():
-            if document_id in self.table[token]:
-                self.table[token].remove(document_id)
-                if len(self.table[token]) == 0:
-                    self.table.pop(token)
+        copy_table = self.table.copy()
+        # 삭제하려는 id를 따라 table을 돌며 삭제
+        for key in copy_table.keys():
+            value = copy_table[key]
+            if document_id in value:
+                del self.table[key][document_id]
+                if len(self.table[key]) == 0:
+                    del self.table[key]
         # id_in_table에 해당 id 삭제
-        self.id_in_table.pop(document_id)
+        self.id_n_len_in_table.pop(document_id)
         return True
 
     # table의 해당 document의 기록을 new_document로 변경
