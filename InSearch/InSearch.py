@@ -40,10 +40,10 @@ class InSearch:
         return self.table
 
     # 검색어와 가장 부합한 document의 id를 table에서 찾아 반환
-    # parameter : query
-    # return : list document_id
+    # parameter : string query
+    # return : list rank_of_document_id
     def search(self, query):
-        return True
+        return list()
 
     # table 초기화
     # return : boolean
