@@ -1,5 +1,6 @@
 from TokenAnalyzer import *
 
+
 class InSearch:
     def __init__(self):
         # key : value = string token : list document_id
@@ -33,11 +34,19 @@ class InSearch:
     # return : boolean
     def delete_document(self, document_id, document):
         # 해당 id가 있는지 확인
+        if document_id not in self.id_in_table:
+            return False
         # document 형태소 분석
-        # table의 해당 token을 찾아 token과 document_id를 삭제
-        #   token에 해당하는 id가 1개이면 token도 삭제
-        #   token에 해당하는 id가 2개 이상이면, id만 삭제
+        token_list = TokenAnaylze(document)
+        # table의 해당 token을 찾아 document_id를 삭제
+        #   token에 해당하는 id가 없다면 token도 삭제
+        for token in token_list:
+            if token in self.table.keys():
+                self.table[token].pop(document_id)
+                if len(self.table[token]) == 0:
+                    self.table.pop(token)
         # id_in_table에 해당 id 삭제
+        self.id_in_table.pop(document_id)
         return True
 
     # table의 해당 document의 기록을 new_document로 변경
