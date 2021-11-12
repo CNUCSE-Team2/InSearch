@@ -24,7 +24,7 @@ class InSearch:
         #   token이 있으면, 원래의 id list에 해당 id값만 추가
         for token in token_list:
             if token in self.table.keys():
-                self.table[token].insert(document_id)
+                self.table[token].append(document_id)
             else:
                 self.table[token] = [document_id]
         return True
