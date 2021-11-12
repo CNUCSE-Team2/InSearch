@@ -2,13 +2,16 @@
 class InSearch:
     def __init__(self):
         # key : value = string token : list document_id
+        # id_in_table, table에 들어있는 id의 list
         self.table = {}
+        self.id_in_table = []
 
     # table에 document의 token과 id를 추가
     # parameter : int document_id, string document
     # return : boolean
     def add_document(self, document_id, document):
         # 해당 id가 없는지 확인
+        # id_in_table에 해당 id 추가
         # document 형태소 분석
         # table에 { token : document id }를 추가
         #   token이 없으면, 새로이 추가
@@ -22,7 +25,8 @@ class InSearch:
         # 해당 id가 있는지 확인
         # document 형태소 분석
         # table의 해당 token을 찾아 token과 document_id를 삭제
-        #   해당 token이
+        #   token에 해당하는 id가 1개이면 token도 삭제
+        #   token에 해당하는 id가 2개 이상이면, id만 삭제
         return True
 
     # table의 해당 document의 기록을 new_document로 변경
