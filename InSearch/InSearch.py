@@ -57,7 +57,7 @@ class InSearch:
         return True
 
     # table의 해당 document의 기록을 new_document로 변경
-    # parameter : int document_id, string old_document, string new_document
+    # parameter : int document_id, string new_document
     # return : boolean
     def update_document(self, document_id, new_document):
         self.delete_document(document_id)
@@ -79,4 +79,5 @@ class InSearch:
     # table 초기화
     # return : boolean
     def delete_all(self):
+        self.table.clear()
         return True
