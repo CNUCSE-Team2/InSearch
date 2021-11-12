@@ -50,11 +50,11 @@ class InSearch:
         return True
 
     # table의 해당 document의 기록을 new_document로 변경
-    # parameter : int document_id
+    # parameter : int document_id, string old_document, string new_document
     # return : boolean
-    def update_document(self, document_id, new_document):
-        # delete_document(document_id, new_document)
-        # add_document(document_id, new_document)
+    def update_document(self, document_id, old_document, new_document):
+        self.delete_document(document_id, old_document)
+        self.add_document(document_id, new_document)
         return True
 
     # 전체 table을 딕셔너리로 반환
