@@ -1,6 +1,6 @@
 # InSearch
 
-## 프로젝트 소개
+## 📚 프로젝트 소개
 전문 검색을 지원하는 파이썬 기반 역색인 구조 라이브러리
 
 - 형태소 분석기 : [은전한잎](http://eunjeon.blogspot.com/)
@@ -20,5 +20,5 @@
 - document 수정
 - query로 검색
 
-## Web for Test 
+## 🕸 Web for Test 
 CNUCSE-Team2의 [InSearch-web](https://github.com/CNUCSE-Team2/InSearch-web)를 통해 라이브러리 작동을 확인할 수 있어요!
