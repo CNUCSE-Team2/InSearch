@@ -7,7 +7,6 @@ class InSearch:
         # id_n_len_in_table, table에 들어있는 doc id와 len의 딕셔너리
         self.table = {}
         self.id_n_len_in_table = {}
-        self.average_of_document_len = 0
 
     # table에 document의 token과 id를 추가
     # parameter : int document_id, string document
