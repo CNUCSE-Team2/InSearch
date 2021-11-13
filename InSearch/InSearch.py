@@ -80,4 +80,5 @@ class InSearch:
     # return : boolean
     def delete_all(self):
         self.table.clear()
+        self.id_n_len_in_table.clear()
         return True
