@@ -1,4 +1,5 @@
 from .TokenAnalyzer import token_analyzer
+from .BM24 import bm24
 
 
 class InSearch:
@@ -73,7 +74,9 @@ class InSearch:
     # parameter : string query
     # return : list rank_of_document_id
     def search(self, query):
-        return list()
+        score_list = bm24(self.table, query, self.id_n_len_in_table)
+        score_list.sort()
+        return score_list
 
     # table 초기화
     # return : boolean
