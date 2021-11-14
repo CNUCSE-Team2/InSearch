@@ -14,3 +14,5 @@ InSearch.egg-info/PKG-INFO
 InSearch.egg-info/requires.txt
 InSearch.egg-info/SOURCES.txt
 InSearch.egg-info/top_level.txt
+build/lib/InSearch/BM25.py
+dist/InSearch-0.1.3-py3-none-any.whl
