@@ -11,6 +11,7 @@
 
 |     2ternal      |   fortune00    |
 | :--------------: | :------------: | 
+|ddft97@gmail.com|sinyoungbok99@gmail.com|
 | dev. BM24 & Analyzer| dev. main function | 
 
 ## 🍏 주요 기능
