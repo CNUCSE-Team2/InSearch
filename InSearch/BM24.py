@@ -50,7 +50,7 @@ def bm24(table, query, document_len_dic):
             # IDF
             token_idf = IDF(document_count, fq_document)
             # TF
-            token_tf = (fq_count * (K1 + 1))/(fq_count + K1 * (1 - B + B * (len(document_id_list)/avgdl)))
+            token_tf = (fq_count * (K1 + 1))/(fq_count + K1 * (1 - B + B * (document_len_dic[id]/avgdl)))
             score += token_idf * token_tf
         # score(D,Q) = sigma(IDF*TF)
         score_list.append((score, id))
