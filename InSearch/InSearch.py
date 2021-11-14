@@ -85,6 +85,9 @@ class InSearch:
         id_list = [i[1] for i in score_n_id_list]
         return id_list
 
+    # 검색어와 가장 부합한 document의 id를 table에서 찾아 상위 n개의 doc id만을 list로 반환
+    # parameter : string query, int top_n
+    # return : list id_list
     def search_top_n(self, query, top_n):
         return self.search(query)[:top_n]
 
