@@ -6,7 +6,7 @@ from . import TokenAnalyzer as ta
     # parameter : int document_count, int fq_document
     # return : float
 def IDF(document_count, fq_document):
-    return math.log(1 + ((document_count - fq_document + 0.5)/fq_document + 0.5))
+    return math.log(1 + ((document_count - fq_document + 0.5)/(fq_document + 0.5)))
 
 
     # document들의 평균 길이 계산
@@ -22,7 +22,7 @@ def get_avg_document_len(document_len_dic, document_id_list, document_count):
     # full-text(query)에 대해 각 document의 점수 계산
     # parameter : InSearch table, string query, int list document_id, dic document_len
     # return : float list
-def bm24(table, query, document_len_dic):
+def bm25(table, query, document_len_dic):
     score_list = []
     # K1은 1.2 ~ 2.0 사이의 상수
     K1 = 1.2
