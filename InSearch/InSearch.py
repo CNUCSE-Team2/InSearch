@@ -79,6 +79,8 @@ class InSearch:
         rank_of_document_id = [i[1] for i in score_list]
         return rank_of_document_id
 
+    def search_top_n(self, query, top_n):
+        return self.search(query)[:top_n]
 
     # table 초기화
     # return : boolean
