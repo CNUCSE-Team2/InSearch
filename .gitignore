@@ -2,3 +2,15 @@
 /shelf/
 /workspace.xml
 .idea
+build/lib/InSearch/__init__.py
+build/lib/InSearch/BM24.py
+build/lib/InSearch/InSearch.py
+build/lib/InSearch/TokenAnalyzer.py
+dist/InSearch-0.1-py3-none-any.whl
+dist/InSearch-0.1.1-py3-none-any.whl
+dist/InSearch-0.1.2-py3-none-any.whl
+InSearch.egg-info/dependency_links.txt
+InSearch.egg-info/PKG-INFO
+InSearch.egg-info/requires.txt
+InSearch.egg-info/SOURCES.txt
+InSearch.egg-info/top_level.txt
