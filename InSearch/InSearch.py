@@ -1,5 +1,5 @@
 from .TokenAnalyzer import token_analyzer
-from .BM24 import bm24
+from .BM25 import bm25
 
 
 class InSearch:
@@ -72,7 +72,13 @@ class InSearch:
 
     # 검색어와 가장 부합한 document의 id를 table에서 찾아 반환
     # parameter : string query
-    # return : list rank_of_document_id
+    # return : score과 id가 tuple로 묶어 list 반환
+    def get_scores(self, query):
+        return bm25(self.table, query, self.id_n_len_in_table)
+
+    # 검색어와 가장 부합한 document의 id를 table에서 찾아 doc id만을 list로 반환
+    # parameter : string query
+    # return : list id_list
     def search(self, query):
         score_list = bm24(self.table, query, self.id_n_len_in_table)
         score_list.sort(reverse=True)
