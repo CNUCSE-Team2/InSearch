@@ -74,7 +74,8 @@ class InSearch:
     # parameter : string query
     # return : score과 id가 tuple로 묶어 list 반환
     def get_scores(self, query):
-        return bm25(self.table, query, self.id_n_len_in_table)
+        rtn_list = [s for s in bm25(self.table, query, self.id_n_len_in_table) if s[0] > 0]
+        return rtn_list
 
     # 검색어와 가장 부합한 document의 id를 table에서 찾아 doc id만을 list로 반환
     # parameter : string query
@@ -89,7 +90,10 @@ class InSearch:
     # parameter : string query, int top_n
     # return : list id_list
     def search_top_n(self, query, top_n):
-        return self.search(query)[:top_n]
+        rtn_list = self.search(query)
+        if top_n > len(rtn_list):
+            return rtn_list
+        return rtn_list[:top_n]
 
     # table 초기화
     # return : boolean
