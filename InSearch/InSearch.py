@@ -74,6 +74,9 @@ class InSearch:
     # parameter : string query
     # return : score과 id가 tuple로 묶어 list 반환
     def get_scores(self, query):
+        if len(self.table) == 0:
+            return [-1]
+
         rtn_list = [s for s in bm25(self.table, query, self.id_n_len_in_table) if s[0] > 0]
         return rtn_list
 
