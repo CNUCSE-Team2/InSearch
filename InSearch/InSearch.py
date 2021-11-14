@@ -75,8 +75,10 @@ class InSearch:
     # return : list rank_of_document_id
     def search(self, query):
         score_list = bm24(self.table, query, self.id_n_len_in_table)
-        score_list.sort()
-        return score_list
+        score_list.sort(reverse=True)
+        rank_of_document_id = [i[1] for i in score_list]
+        return rank_of_document_id
+
 
     # table 초기화
     # return : boolean
