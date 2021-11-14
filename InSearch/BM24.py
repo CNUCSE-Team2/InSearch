@@ -1,4 +1,4 @@
-import numpy as np
+import math
 from . import TokenAnalyzer as ta
 
 
@@ -6,7 +6,7 @@ from . import TokenAnalyzer as ta
     # parameter : int document_count, int fq_document
     # return : float
 def IDF(document_count, fq_document):
-    return np.log(1 + ((document_count - fq_document + 0.5)/fq_document + 0.5))
+    return math.log(1 + ((document_count - fq_document + 0.5)/fq_document + 0.5))
 
 
     # document들의 평균 길이 계산
