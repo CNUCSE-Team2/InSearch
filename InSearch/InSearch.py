@@ -80,10 +80,10 @@ class InSearch:
     # parameter : string query
     # return : list id_list
     def search(self, query):
-        score_list = bm24(self.table, query, self.id_n_len_in_table)
-        score_list.sort(reverse=True)
-        rank_of_document_id = [i[1] for i in score_list]
-        return rank_of_document_id
+        score_n_id_list = self.get_scores(query)
+        score_n_id_list.sort(reverse=True)
+        id_list = [i[1] for i in score_n_id_list]
+        return id_list
 
     def search_top_n(self, query, top_n):
         return self.search(query)[:top_n]
