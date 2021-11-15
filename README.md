@@ -16,14 +16,14 @@ Python-based inverted index structure library with full-text search support
 |     2ternal      |   fortune00    |
 | :--------------: | :------------: | 
 |ddft97@gmail.com|sinyoungbok99@gmail.com|
-| dev. BM24 & Analyzer| dev. main function | 
+| dev. BM25 & Analyzer| dev. main function | 
 
 ## 🔧 Installation
 
 ```
 pip install InSearch
 ```
-
+- Recent release version : 0.1.4
 ## 🍏 Using
  
 ### Initalize
