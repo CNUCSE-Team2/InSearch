@@ -55,6 +55,32 @@ insearch.search(query)
 # [2, 0, 3]
 
 ```
+### More about Document
+``` python
+# update
+insearch.update_document(doc_id, doc_content)
+
+# delete
+insearch.delete_document(doc_id)
+```
+
+### More about Table
+``` python
+# get table
+insearch.return_table()
+
+# get size of table 
+insearch.get_size()
+
+# initialize table 
+insearch.delete_all()
+```
+
+### More about Search
+``` python
+# search top n
+insearch.search_top_n()
+```
 
 
 ## 🕸 Web for Test 
